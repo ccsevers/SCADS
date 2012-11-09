@@ -162,8 +162,8 @@ object ScadsBuild extends Build {
 
   def avroPluginDeps = Seq(avroJava, avroIpc, scalaCompiler, configgy) ++ testDeps
 
-  val avroJava = "org.apache.avro" % "avro" % "1.6.0"
-  val avroIpc = "org.apache.avro" % "avro-ipc" % "1.6.0"
+  val avroJava = "org.apache.avro" % "avro" % "1.7.2"
+  val avroIpc = "org.apache.avro" % "avro-ipc" % "1.7.2"
   val scalaCompiler = "org.scala-lang" % "scala-compiler" % defaultScalaVersion
   val avroPluginDep = "edu.berkeley.cs" %% "avro-plugin" % buildVersion % "plugin"
   val avroPluginCompile = "edu.berkeley.cs" %% "avro-plugin" % buildVersion

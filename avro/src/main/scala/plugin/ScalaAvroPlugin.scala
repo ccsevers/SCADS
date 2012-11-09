@@ -61,6 +61,7 @@ trait ScalaAvroPluginComponent extends PluginComponent {
   /** Avro Extra Primitive Types */
   protected lazy val byteBufferClass = definitions.getClass("java.nio.ByteBuffer")
   protected lazy val utf8Class = definitions.getClass("org.apache.avro.util.Utf8")
+  protected lazy val charSeqClass = definitions.getClass("java.lang.CharSequence")
 
   /** Avro Internal Types */
   protected lazy val GenericRecordClass = definitions.getClass("org.apache.avro.generic.GenericRecord")

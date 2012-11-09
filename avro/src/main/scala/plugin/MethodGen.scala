@@ -54,14 +54,14 @@ trait MethodGen extends ScalaAvroPluginComponent
           case 1 =>
             construct(GenericArrayClass.tpe, List(toAvroType(tpe.typeArgs.head)))
           case 2 =>
-            construct(JMapClass.tpe, List(utf8Class.tpe, toAvroType(tpe.typeArgs.tail.head)))
+            construct(JMapClass.tpe, List(charSeqClass.tpe, toAvroType(tpe.typeArgs.tail.head)))
           case _ =>
             throw new UnsupportedOperationException("Unsupported collection type: " + tpe)
         }
       } else tpe.typeSymbol match {
         case OptionClass =>
           toAvroType(tpe.typeArgs.head)
-        case StringClass => utf8Class.tpe 
+        case StringClass => charSeqClass.tpe 
         case ArrayClass  =>
           if (tpe.typeArgs.head.typeSymbol == ByteClass)
             byteBufferClass.tpe

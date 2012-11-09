@@ -60,6 +60,7 @@ trait SchemaGen extends ScalaAvroPluginComponent
       /** Primitives in the Avro sense */
       byteBufferClass -> Schema.create(AvroType.BYTES),
       utf8Class       -> Schema.create(AvroType.STRING),
+      charSeqClass    -> Schema.create(AvroType.STRING),
 
       /** Boxed primitives */
       BoxedIntClass       -> Schema.create(AvroType.INT),

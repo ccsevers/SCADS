@@ -44,6 +44,18 @@ object BasicTransforms {
       else a.toString
   }
 
+  object toCharSequenceConv extends (String ==>> CharSequence) {
+    def apply(s: Schema, a: String) = 
+      if (a eq null) null
+      else a
+  }
+
+  object fromCharSequenceConv extends (CharSequence ==>> String) {
+    def apply(s: Schema, a: CharSequence) = 
+      if (a eq null) null
+      else a.toString
+  }
+
   object toByteBufferConv extends (Array[Byte] ==>> ByteBuffer) {
     def apply(s: Schema, a: Array[Byte]) = 
       if (a eq null) null
@@ -204,6 +216,8 @@ trait HasAvroPrimitiveConversions {
 
   implicit def stringToUtf8 = toUtf8Conv 
   implicit def utf8ToString = fromUtf8Conv
+  implicit def stringToCharSequence = toCharSequenceConv 
+  implicit def charSequenceToString = fromCharSequenceConv
 
   implicit def byteArrayToByteBuffer = toByteBufferConv
   implicit def byteBufferToByteArray = fromByteBufferConv
